@@ -28,9 +28,6 @@ export LANG="en_US"
 # You could just use `-g` instead, but I like being explicit
 complete -W "NSGlobalDomain" defaults
 
-# Ignores dupes in the history
-export HISTCONTROL=ignoredups
-
 # bash completion settings (actually, these are readline settings)
 bind "set completion-ignore-case on" # note: bind is used instead of setting these in .inputrc. This ignores case in bash completion
 bind "set bell-style none" # No bell, because it's damn annoying
