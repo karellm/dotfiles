@@ -44,4 +44,5 @@ http://dotfiles.github.io/
 ### /bin
 
 **vm**: list and start vmware machines
+
 **vmsusped**: list and stop vmware machines
