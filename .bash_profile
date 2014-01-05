@@ -6,10 +6,14 @@ done
 unset file
 
 # init z   https://github.com/rupa/z
-. ~/code/z/z.sh
+if [ -d ~/code/z ]; then 
+    . ~/code/z/z.sh
+fi
 
 # init rvm
-source ~/.rvm/scripts/rvm
+if [ -d ~/.rvm ]; then 
+    source ~/.rvm/scripts/rvm
+fi
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
