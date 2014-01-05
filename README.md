@@ -6,6 +6,9 @@
 http://dotfiles.github.io/
 
 
+---
+
+
 ## Installation
 
 ### Pygments
@@ -18,7 +21,7 @@ http://dotfiles.github.io/
 
 
 ---
----
+
 
 ## Repo structure
 
@@ -37,8 +40,6 @@ http://dotfiles.github.io/
 `.tmux`
 
 `.vimrc`
-
----
 
 ### /bin
 
