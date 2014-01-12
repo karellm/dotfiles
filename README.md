@@ -13,7 +13,10 @@ http://dotfiles.github.io/
 
 ### Pygments
 
-`sudo easy_install Pygments`
+```
+sudo apt-get install python-setuptools
+sudo easy_install Pygments
+```
 
 ### z
 
