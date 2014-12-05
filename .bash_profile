@@ -6,14 +6,17 @@ done
 unset file
 
 # init z   https://github.com/rupa/z
-if [ -d ~/code/z ]; then 
-    . ~/code/z/z.sh
+if [ -d ~/bin/z ]; then 
+    . ~/bin/z/z.sh
 fi
 
 # init rvm
 if [ -d ~/.rvm ]; then 
     source ~/.rvm/scripts/rvm
 fi
+
+# Customize the path
+PATH=$PATH:~/bin
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
@@ -31,6 +34,9 @@ export LANG="en_US"
 # Add tab completion for `defaults read|write NSGlobalDomain`
 # You could just use `-g` instead, but I like being explicit
 complete -W "NSGlobalDomain" defaults
+
+# If not running interactively, stop here
+[ -z "$PS1" ] && return
 
 # bash completion settings (actually, these are readline settings)
 bind "set completion-ignore-case on" # note: bind is used instead of setting these in .inputrc. This ignores case in bash completion
