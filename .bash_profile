@@ -15,6 +15,10 @@ if [ -d ~/.rvm ]; then
     source ~/.rvm/scripts/rvm
 fi
 
+# Set EDITOR and SHELL
+export EDITOR="vim"
+export SHELL="/bin/bash"
+
 # Customize the path
 PATH=$PATH:~/bin
 
