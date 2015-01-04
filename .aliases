@@ -39,21 +39,15 @@ fi
 
 alias g="git"
 
-# Undo a `git push`
-alias undopush="git push -f origin HEAD^:master"
-
-# git root
-alias gr="[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`"
-
 
 
 # DOCKER
 # ======
 
 alias d="docker"
-alias dsa="docker stop $(sudo docker ps -a -q)" # stop all containers
-alias dra="docker rm $(sudo docker ps -a -q)" # remove all containers
-alias drmia="docker rmi $(docker images | grep \"^<none>\" | awk \"{print $3}\")"
+alias dsa="docker stop $(docker ps -a -q)" # stop all containers
+alias dra="docker rm $(docker ps -a -q)" # remove all containers
+# alias drmia="docker rmi $(docker images | grep '^<none>' | awk '{print $3}')"
 
 
 # FIG RAILS
