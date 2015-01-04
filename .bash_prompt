@@ -23,7 +23,7 @@ git_info() {
 }
 
 usernamehost() {
-    if [ $USER != $default_username ]; then echo "${BLUE}[$USER at $HOSTNAME]"; fi
+    if [ "$USER" != "$default_username" ]; then echo "${BLUE}[$USER at $HOSTNAME]"; fi
 }
 
 prompt_func() {
