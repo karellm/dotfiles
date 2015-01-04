@@ -50,17 +50,17 @@ alias gr="[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup 
 # DOCKER
 # ======
 
-alias d="sudo docker"
-alias dsa="sudo docker stop $(sudo docker ps -a -q)" # stop all containers
-alias dra="sudo docker rm $(sudo docker ps -a -q)" # remove all containers
-
+alias d="docker"
+alias dsa="docker stop $(sudo docker ps -a -q)" # stop all containers
+alias dra="docker rm $(sudo docker ps -a -q)" # remove all containers
+alias drmia="docker rmi $(docker images | grep \"^<none>\" | awk \"{print $3}\")"
 
 
 # FIG RAILS
 # =========
 alias figrails="fig run web bundle exec rails $1"
 alias figrake="fig run web bundle exec rake $1"
-alias figrspec="fig run web bundle exec rspec $1"
+alias figrspec="fig run web bundle exec rspec -fd $1"
 alias figresetdb="fig run web bundle exec rake db:drop db:create db:migrate"
 
 
