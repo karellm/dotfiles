@@ -34,38 +34,55 @@ fi
 
 
 
-# GIT
-# ===
-
-alias g="git"
+# EXTRACTING
+# ==========
+extract () {
+   if [ -f "$1" ] ; then
+       case $1 in
+           *.tar.bz2)   tar xvjf -- "$1"    ;;
+           *.tar.gz)    tar xvzf -- "$1"    ;;
+           *.bz2)       bunzip2 -- "$1"     ;;
+           *.rar)       unrar x -- "$1"     ;;
+           *.gz)        gunzip -- "$1"      ;;
+           *.tar)       tar xvf -- "$1"     ;;
+           *.tbz2)      tar xvjf -- "$1"    ;;
+           *.tgz)       tar xvzf -- "$1"    ;;
+           *.zip)       unzip -- "$1"       ;;
+           *.Z)         uncompress -- "$1"  ;;
+           *.7z)        7z x -- "$1"        ;;
+           *)           echo "don't know how to extract '$1'..." ;;
+       esac
+   else
+       echo "'$1' is not a valid file"
+   fi
+}
 
 
 
 # DOCKER
 # ======
 
-alias d="docker"
+alias dk="docker"
 alias dsa="docker stop $(docker ps -a -q)" # stop all containers
 alias dra="docker rm $(docker ps -a -q)" # remove all containers
-# alias drmia="docker rmi $(docker images | grep '^<none>' | awk '{print $3}')"
-
-
-# FIG RAILS
-# =========
-alias figrails="fig run web bundle exec rails $1"
-alias figrake="fig run web bundle exec rake $1"
-alias figrspec="fig run web bundle exec rspec -fd $1"
-alias figresetdb="fig run web bundle exec rake db:drop db:create db:migrate"
+alias drmia="docker rmi $(docker images | grep '^<none>' | awk '{print $3}')"
+alias dkc="docker-compose"
+alias dkcrails="docker-compose run web bundle exec rails $1"
+alias dkcrake="docker-compose run web bundle exec rake $1"
+alias dkcrspec="docker-compose run web bundle exec rspec -fd $1"
+alias dkcresetdb="docker-compose run web bundle exec rake db:drop db:create db:migrate db:seed"
 
 
 
 # USEFUL STUFF
 # ============
 
+alias fuck="sudo $(history -p \!\!)"
+
 alias hosts="sudo $EDITOR /etc/hosts"
 
 # `cat` with beautiful colors (requires Pygments)
-alias c="pygmentize -O style=monokai -f console256 -g"
+alias ca="pygmentize -O style=monokai -f console256 -g"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
