@@ -62,19 +62,36 @@ extract () {
 # DOCKER
 # ======
 
-# if hash docker 2>/dev/null; then
-#   alias dk="docker"
-#   alias dsa="docker stop $(docker ps -a -q)"
-#   alias dra="docker rm $(docker ps -a -q)"
-#   alias drmia="docker rmi $(docker images | grep '^<none>' | awk '{print $3}')"
-# fi
+if hash docker 2>/dev/null; then
+  alias dk="docker"
+fi
+
+dsa () {
+  docker stop $(docker ps -a -q)
+}
+
+dra () {
+  docker rm $(docker ps -a -q)
+}
+
+drmia () {
+  docker rmi $(docker images | grep '^<none>' | awk '{print $3}')
+}
+
+if hash docker-machine 2>/dev/null; then
+  alias dkm="docker-machine"
+  alias dkmu="docker-machine start default"
+  alias dkmd="docker-machine stop default"
+  alias dkme="eval $(docker-machine env default)"
+fi
 
 if hash docker-compose 2>/dev/null; then
   alias dkc="docker-compose"
-  alias dkcrails="docker-compose run web bundle exec rails $1"
-  alias dkcrake="docker-compose run web bundle exec rake $1"
-  alias dkcrspec="docker-compose run web bundle exec rspec -fd $1"
-  alias dkcresetdb="docker-compose run web bundle exec rake db:drop db:create db:migrate db:seed"
+  alias dkcrails="docker-compose run app bundle exec rails $1"
+  alias dkcrake="docker-compose run app bundle exec rake $1"
+  alias dkcrspec="docker-compose run app bundle exec rspec -fd $1"
+  alias dkcreset="docker-compose run app bundle exec rake db:drop db:create db:migrate"
+  alias dkcresetdb="docker-compose run app bundle exec rake db:drop db:create db:migrate db:seed"
 fi
 
 
