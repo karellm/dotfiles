@@ -10,11 +10,6 @@ if [ -d ~/bin/z ]; then
     . ~/bin/z/z.sh
 fi
 
-# init rvm
-if [ -d ~/.rvm ]; then 
-    source ~/.rvm/scripts/rvm
-fi
-
 # Customize the path
 PATH=$PATH:~/bin
 
